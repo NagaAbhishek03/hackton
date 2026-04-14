@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card p-4 shadow">
+  <h3>Prediction Result</h3>
+  <p><strong>Prediction:</strong> {{ "Heart Disease Detected" if pred==1 else "No Heart Disease" }}</p>
+  {% if prob %}
+  <p><strong>Probability:</strong> {{ "%.2f"|format(prob*100) }}%</p>
+  {% endif %}
+  <a href="{{ url_for('predict') }}" class="btn btn-primary">Back</a>
+</div>
+{% endblock %}
